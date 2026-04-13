@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Anrai Harika Harpan</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f5;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem 1rem;
+    }
+
+    .cv {
+      background: #fff;
+      width: 100%;
+      max-width: 760px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    }
+
+    /* HEADER */
+    .header {
+      background: #1a2540;
+      padding: 2.2rem 2.5rem 1.8rem;
+      color: #fff;
+    }
+    .header h1 {
+      font-size: 1.85rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 4px;
+    }
+    .header .subtitle {
+      font-size: 0.85rem;
+      color: #a8bcd8;
+      margin-bottom: 1.1rem;
+    }
+    .header .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .header .contacts span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: #c8d8ed;
+    }
+    .header .contacts svg {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+    }
+
+    /* BODY */
+    .body {
+      padding: 1.75rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    /* SECTION LABEL */
+    .section-label {
+      border-left: 3px solid #1a2540;
+      padding-left: 12px;
+      margin-bottom: 0.85rem;
+    }
+    .section-label h2 {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #1a2540;
+    }
+
+    /* PROFIL */
+    .profil p {
+      font-size: 0.85rem;
+      color: #555;
+      line-height: 1.75;
+    }
+
+    /* PENDIDIKAN */
+    .edu-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 2px;
+    }
+    .edu-sub {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      background: #e8edf7;
+      color: #1a2540;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    /* TAGS */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .tag-blue {
+      background: #e8edf7;
+      color: #1a2540;
+    }
+    .tag-gray {
+      background: #f3f4f6;
+      color: #374151;
+      border: 0.5px solid #d1d5db;
+    }
+
+    /* SKILL BARS */
+    .skill-group-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 10px;
+    }
+    .skill-item {
+      margin-bottom: 10px;
+    }
+    .skill-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .skill-meta span:first-child {
+      font-size: 0.78rem;
+      color: #555;
+    }
+    .skill-meta span:last-child {
+      font-size: 0.72rem;
+      color: #1a2540;
+      font-weight: 600;
+    }
+    .bar-track {
+      height: 5px;
+      background: #e8edf7;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: #1a2540;
+      border-radius: 99px;
+    }
+
+    /* PROYEK */
+    .project-card {
+      border: 0.5px solid #d1d5db;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .project-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #222;
+    }
+    .project-sub {
+      font-size: 0.78rem;
+      color: #666;
+      margin-top: 2px;
+    }
+    .project-year {
+      font-size: 0.75rem;
+      color: #1a2540;
+      background: #e8edf7;
+      padding: 3px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .project-card ul {
+      padding-left: 16px;
+      font-size: 0.83rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #f8f9fb;
+      border-top: 0.5px solid #e5e7eb;
+      padding: 0.9rem 2.5rem;
+      text-align: center;
+      font-size: 0.72rem;
+      color: #999;
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .cv { box-shadow: none; border-radius: 0; max-width: 100%; }
+      .footer { display: none; }
+    }
+
+    /* Tablet (560px - 768px): kolom tetap 2, padding dikurangi */
+    @media (max-width: 768px) {
+      body { padding: 1rem 0.75rem; }
+      .header { padding: 1.75rem 1.75rem 1.5rem; }
+      .header h1 { font-size: 1.55rem; }
+      .body { padding: 1.5rem 1.75rem; gap: 1.25rem; }
+      .footer { padding: 0.9rem 1.75rem; }
+    }
+
+    /* HP (max 560px): layout satu kolom penuh */
+    @media (max-width: 560px) {
+      body { padding: 0; background: #fff; }
+      .cv { border-radius: 0; box-shadow: none; }
+      .header { padding: 1.4rem 1.25rem 1.2rem; }
+      .header h1 { font-size: 1.3rem; }
+      .header .subtitle { font-size: 0.78rem; margin-bottom: 0.85rem; }
+      .header .contacts { gap: 0.65rem; }
+      .header .contacts span { font-size: 0.75rem; }
+      .body {
+        grid-template-columns: 1fr;
+        padding: 1.25rem 1.25rem;
+        gap: 1.25rem;
+      }
+      .full { grid-column: 1; }
+      .profil p { font-size: 0.82rem; }
+      .edu-title { font-size: 0.85rem; }
+      .edu-sub { font-size: 0.78rem; }
+      .skill-group-title { font-size: 0.82rem; }
+      .project-title { font-size: 0.85rem; }
+      .project-sub { font-size: 0.75rem; }
+      .project-card ul { font-size: 0.8rem; }
+      .footer { padding: 0.8rem 1.25rem; font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv">
+
+    <!-- HEADER -->
+    <div class="header">
+      <h1>Anrai Harika Harpan</h1>
+      <p class="subtitle">Mahasiswa Teknik Informatika</p>
+      <div class="contacts">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 14a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3.12h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.27-.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 18.12z"/></svg>
+          087771732365
+        </span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>anrai0505@gmail.com</span>
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Kalideres, Jakarta Barat
+        </span>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <!-- PROFIL -->
+      <div class="full profil">
+        <div class="section-label"><h2>Profil</h2></div>
+        <p>Mahasiswa aktif Teknik Informatika yang memiliki minat kuat di bidang administrasi dan pengelolaan dokumen. Terampil menggunakan perangkat Microsoft Office untuk mendukung operasional kantor secara efisien. Bersemangat untuk berkontribusi dan terus berkembang dalam lingkungan kerja profesional.</p>
+      </div>
+
+      <!-- PENDIDIKAN -->
+      <div>
+        <div class="section-label"><h2>Pendidikan</h2></div>
+        <p class="edu-title">S1 Teknik Informatika</p>
+        <p class="edu-sub">Ilmu Komputer &nbsp;·&nbsp; Masih aktif</p>
+
+        <div class="section-label" style="margin-top: 1.25rem;"><h2>Mata Kuliah Relevan</h2></div>
+        <div class="tags">
+          <span class="tag tag-blue">Pengantar Aplikasi Komputer</span>
+          <span class="tag tag-blue">Sistem Informasi</span>
+          <span class="tag tag-blue">Manajemen Data</span>
+          <span class="tag tag-blue">Basis Data</span>  
+        </div>
+      </div>
+
+      <!-- KETERAMPILAN -->
+      <div>
+        <div class="section-label"><h2>Keterampilan</h2></div>
+        <p class="skill-group-title">Microsoft Office</p>
+
+        <div class="skill-item">
+          <div class="skill-meta">
+            <span>Microsoft Word</span>
+            <span>Cukup Mahir</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 55%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-meta">
+            <span>Microsoft Excel</span>
+            <span>Dasar</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" style="width: 20%;"></div></div>
+        </div>
+
+        <div class="section-label" style="margin-top: 1.25rem;"><h2>Kompetensi Umum</h2></div>
+        <div class="tags">
+          <span class="tag tag-gray">Manajemen arsip</span>
+          <span class="tag tag-gray">Administrasi perkantoran</span>
+          <span class="tag tag-gray">Pengolahan data</span>
+          <span class="tag tag-gray">Komunikasi efektif</span>
+          <span class="tag tag-gray">Teliti dan terorganisir</span>
+        </div>
+      </div>
+
+      <!-- PROYEK AKADEMIK -->
+      <div class="full">
+        <div class="section-label"><h2>Pengalaman Kerja</h2></div>
+        <div class="project-card">
+          <div class="project-header">
+            <div>
+              <p class="project-title">PT Fastock Warehouse Service Indonesia</p>
+              <p class="project-sub">Staff Pengemasan &nbsp;·&nbsp; Picking dan packing barang</p>
+            </div>
+            <span class="project-year">2022 - 2023</span>
+          </div>
+          <ul>
+            <li>Mengelola proses picking dan packing barang berdasarkan pesanan pelanggan secara akurat dan efisien</li>
+            <li>Menganalisis dan memastikan kesesuaian data pada pick list dengan stok barang di gudang</li>
+            <li>Menerapkan prosedur pengemasan yang tepat untuk menjaga kualitas dan keamanan produk</li>
+            <li>Mengoptimalkan kecepatan dan ketelitian dalam proses distribusi barang</li>
+            <li>Berkontribusi dalam menjaga kelancaran alur logistik dan kepuasan pelanggan</li>
+          </ul>
+        </div>
+        </div>
+
+      <div class="full">
+        <div class="section-label"><h2>Proyek Akademik</h2></div>
+        <div class="project-card">
+          <div class="project-header">
+            <div>
+              <p class="project-title">Proyek Pengelolaan Data Akademik</p>
+              <p class="project-sub">Pengantar Aplikasi Komputer &nbsp;·&nbsp; Tugas Akhir Mata Kuliah</p>
+            </div>
+            <span class="project-year">2024</span>
+          </div>
+          <ul>
+            <li>Membuat dan mengelola spreadsheet data menggunakan Microsoft Excel</li>
+            <li>Menyusun laporan terstruktur dan dokumen resmi menggunakan Microsoft Word</li>
+            <li>Mengorganisir dan mengklasifikasikan data secara sistematis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
